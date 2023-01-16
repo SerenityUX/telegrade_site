@@ -6,8 +6,23 @@ import { useState } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 export default function Home() {
-	const [handle, setHandle] = useState("");
-	const [password, setPassword] = useState("");
+  function scrapeAccount() {
+    var myHeaders = new Headers();
+    myHeaders.append("X-API-KEY", "DemoAPIKeyTokenSeHYGXDfd4SFD320Sc39Asd0Sc39Asd4s");
+    
+    var requestOptions = {
+      method: 'GET',
+      headers: myHeaders,
+      redirect: 'follow'
+    };
+    
+    fetch("https://sandbox.tikapi.io/public/check?username=minimaru.store", requestOptions)
+      .then(response => response.text())
+      .then(result => console.log(result))
+      .catch(error => console.log('error', error));
+  }
+  const [handle, setHandle] = useState("");
+  const [password, setPassword] = useState("");
 
 	const onSubmit = async () => {
 		const user = await fetch("http://localhost:3000/api/tiktok/user/minimaru.store")
