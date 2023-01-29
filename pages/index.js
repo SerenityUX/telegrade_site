@@ -6,7 +6,7 @@ import { useState } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 export default function Home() {
-  const [handle, setHandle] = useState("@minimaru.store");
+  const [handle, setHandle] = useState("");
   const [email, setEmail] = useState("");
 
   const onSubmit = async () => {
@@ -35,10 +35,13 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         <div>
-          <p>Telegrade</p>
-          <div>
-            <p>TikTok Handle</p>
+          <h1>Personalized TikTok<br></br>Monetization Coaching</h1>
+          <h2 style={{opacity: 0.89}}>Wield Expert Advice and <strong>AI Account Analysis™ </strong>to Turn Your Passion Into Sales and Freedom</h2>
+          <div style={{opacity: 0.89}}>
+            <p style={{marginBottom: "4px"}}>TikTok Handle</p>
             <input
+            placeholder="Marsha Mellow"
+              style={{width: "calc(100vw - 48px)"}}
               value={handle}
               onChange={(event) => {
                 if (event.target.value.charAt(0) == "@") {
@@ -53,12 +56,19 @@ export default function Home() {
               }}
             />
           </div>
-          <div>
-            <p>Email Address</p>
-            <input onChange={(event) => setEmail(event.target.value)} />
+          <div style={{opacity: 0.89, marginBottom: 16}}>
+            <p style={{marginBottom: "4px"}}>Email Address</p>
+            <input 
+            placeholder="MarshaMellow@FluffyWhiteSugar.fun"
+            style={{width: "calc(100vw - 48px)"}}
+            onChange={(event) => setEmail(event.target.value)} />
           </div>
         </div>
-        <button onClick={onSubmit}>Submit</button>
+        <button style={{marginBottom: "16px", cursor: "pointer", outline: "none", borderRadius: "16px", border: "none", backgroundColor: "#FFCF55", width: "100%", padding: "16px", fontSize: "16px", color: "#000"}} onClick={onSubmit}>Join Waitlist</button>
+        <div>
+          <a href="https://telegrade-site.vercel.app/Privacy.html" style={{display: "block", width:"100%", marginBottom: "12px", color: "#FFCF55", opacity: 0.89, textDecoration: "1px underline"}}>Privacy Policy</a>
+          <a href="https://telegrade-site.vercel.app/TOS.html" style={{display: "block", width:"100%", marginBottom: "12px", color: "#FFCF55", opacity: 0.89, textDecoration: "1px underline"}}>Terms and Conditions</a>
+        </div>
       </main>
     </>
   );
